@@ -16,12 +16,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 let Bola_de_fuego: Sprite = null
 let Magia_verde: Sprite = null
 let Hechicera: Sprite = null
-tiles.setTilemap(tilemap`level1`)
-Hechicera = sprites.create(assets.image`M_Atras`, SpriteKind.Player)
-Hechicera.setStayInScreen(false)
-info.setLife(3)
-Hechicera.ay = 200
-controller.moveSprite(Hechicera, 150, 0)
 scene.setBackgroundImage(img`
     ccccccccccccccbbbbbbbbbccccccccccccccccbbbbbbbbbbbccccccccccccccccbbbbccccccccccccbbbbbbbbccccccccccccccbbbbccccccccccccccccccccccbbbbbbcccccccccccccccccccccbbb
     ccccccccccccccbbbbbbbbbccccccccccccccccbbbbbbbbbbbccccccccccccccccbbbbccccccccccccbbbbbbbbccccccccccccccccccccccccccccccccccccccccbbbbbbcccccccccccccccccccccbbb
@@ -144,6 +138,13 @@ scene.setBackgroundImage(img`
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
     `)
+Hechicera = sprites.create(assets.image`M_Atras`, SpriteKind.Player)
+controller.moveSprite(Hechicera, 100, 52)
+tiles.setTilemap(tilemap`level1`)
+Hechicera.ay = 200
+scene.cameraFollowSprite(Hechicera)
+Hechicera.setStayInScreen(false)
+info.setLife(3)
 game.onUpdateInterval(1000, function () {
     Bola_de_fuego = sprites.create(assets.image`Bola de fuego`, SpriteKind.Enemy)
     Bola_de_fuego.setVelocity(0, 100)
